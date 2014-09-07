@@ -2,6 +2,7 @@
 #-*-coding:utf-8-*-
 import wx
 import math
+pi=3.14195265357
 class myframe(wx.Frame):
     def __init__(self):
         wx.Frame.__init__(self,None,-1,'计算软件')
@@ -177,9 +178,9 @@ class myframe6(wx.Frame):
             d=float(self.text1.GetValue())
             D=float(self.text2.GetValue())
             cita=float(self.text3.GetValue())
-            D1=D/2/math.cos(cita)*2           
+            D1=D/2/math.cos(cita/180*pi)*2           
             cita1=360-360*D/D1
-            d1=pi/90*d*D1/D
+            d1=d*D1/D
             self.text4.SetValue(`d1`)
             self.text5.SetValue(`D1`)
             self.text6.SetValue(`cita1`)
