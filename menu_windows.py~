@@ -50,7 +50,7 @@ class myframe(wx.Frame):
         frame6=myframe6()
         frame6.Show()
     def sea(self,event):
-        frame7=search_PL.search_PL()
+        frame7=search_PL()
         frame7.Show()
     def exit(self,event):
         self.Close(True)

@@ -1,0 +1,12 @@
+#coding=utf-8
+import MySQLdb
+db=MySQLdb.connect('localhost','root','123456','sample',use_unicode=0,charset='gbk')
+cursor=db.cursor()
+ #   a='¿œ∂≠'
+sql='select * from students'
+#sql='select * from students where name='+ a
+cursor.execute(sql)
+results=cursor.fetchall()
+
+
+

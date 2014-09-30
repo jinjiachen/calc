@@ -1,0 +1,40 @@
+#coding=utf-8
+import wx
+class search_PL(wx.Frame):
+    def __init__(self):
+        wx.Frame.__init__(self,None,-1,'板式平焊参数查询')
+        panel=wx.Panel(self)
+        wx.StaticText(panel,-1,'请选择PN:',(10,10),(80,20))
+        wx.TextCtrl(panel,-1,'',(90,10),(80,20))
+        wx.StaticText(panel,-1,'请选择DN:',(200,10),(80,20))
+        wx.TextCtrl(panel,-1,'',(280,10),(80,20))
+        wx.Button(panel,-1,'查询',(150,50),(80,20))
+        wx.StaticText(panel,-1,'钢管外径A1(A):',(10,80))
+        wx.TextCtrl(panel,-1,'',(120,80),(80,20))
+        wx.StaticText(panel,-1,'钢管外径A1(B)',(10,110))
+        wx.TextCtrl(panel,-1,'',(120,110),(80,20))
+        wx.StaticText(panel,-1,'法兰外径D:',(10,140))
+        wx.TextCtrl(panel,-1,'',(120,140),(80,20))
+        wx.StaticText(panel,-1,'螺栓孔中心圆直径K:',(10,170))
+        wx.TextCtrl(panel,-1,'',(120,170),(80,20))
+        wx.StaticText(panel,-1,'螺栓孔直径L:',(10,200))
+        wx.TextCtrl(panel,-1,'',(120,200),(80,20))
+        wx.StaticText(panel,-1,'螺栓孔数量n:',(10,230))
+        wx.TextCtrl(panel,-1,'',(120,230),(80,20))
+        wx.StaticText(panel,-1,'螺栓Th:',(10,260))
+        wx.TextCtrl(panel,-1,'',(120,260),(80,20))
+        wx.StaticText(panel,-1,'法兰厚度C:',(10,290))
+        wx.TextCtrl(panel,-1,'',(120,290),(80,20))
+        wx.StaticText(panel,-1,'法兰内径B1(A):',(10,320))
+        wx.TextCtrl(panel,-1,'',(120,320),(80,20))
+        wx.StaticText(panel,-1,'法兰内径B1(B)',(10,350))
+        wx.TextCtrl(panel,-1,'',(120,350),(80,20))
+        wx.StaticText(panel,-1,'坡口b:',(10,380))
+        wx.TextCtrl(panel,-1,'',(120,380),(80,20))
+
+
+if __name__=='__main__':
+    myapp=wx.PySimpleApp()
+    frame=search_PL()
+    frame.Show()
+    myapp.MainLoop()
