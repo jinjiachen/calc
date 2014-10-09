@@ -1,4 +1,4 @@
-create table SO40
+create table WN16
 (DN int unsigned not null primary key,
 钢管外径A1A char(5) not null,
 钢管外径A1B char(5) not null,
@@ -8,10 +8,9 @@ create table SO40
 螺栓孔数量n char(5) not null,
 螺栓Th char(5) not null,
 法兰厚度C char(5) not null,
-法兰内径B1A char(5) not null,
-法兰内径B2B char(5) not null,
 法兰颈NA char(5) not null,
 法兰颈NB char(5) not null,
+法兰颈S char(5) not null,
+法兰颈H1 char(5) not null,
 法兰颈R char(5) not null,
-法兰高度H char(5) not null,
-坡口b char(5) not null);
+法兰高度H char(5) not null);
