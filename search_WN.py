@@ -1,9 +1,9 @@
 #coding=utf-8
 import wx
-import search_PLdb
-class search_PL(wx.Frame):
+#import search_SOdb
+class search_SO(wx.Frame):
     def __init__(self):
-        wx.Frame.__init__(self,None,-1,'板式平焊参数查询')
+        wx.Frame.__init__(self,None,-1,'带颈平焊参数查询',size=(400,600))
         panel=wx.Panel(self)
         PN=['6','10','16','25','40']
         DN=['10','15','20','25','32','40','50','65','80','100','125','150','200','250','300','350','400','450','500','600']
@@ -32,13 +32,21 @@ class search_PL(wx.Frame):
         self.text9=wx.TextCtrl(panel,-1,'',(120,320),(80,20))
         wx.StaticText(panel,-1,'法兰内径B1(B)',(10,350))
         self.text10=wx.TextCtrl(panel,-1,'',(120,350),(80,20))
-        wx.StaticText(panel,-1,'坡口b:',(10,380))
+        wx.StaticText(panel,-1,'法兰颈N(A):',(10,380))
         self.text11=wx.TextCtrl(panel,-1,'',(120,380),(80,20))
+        wx.StaticText(panel,-1,'法兰颈N(B):',(10,410))
+        self.text12=wx.TextCtrl(panel,-1,'',(120,410),(80,20))
+        wx.StaticText(panel,-1,'法兰颈R:',(10,440))
+        self.text13=wx.TextCtrl(panel,-1,'',(120,440),(80,20))
+        wx.StaticText(panel,-1,'法兰高度H:',(10,470))
+        self.text14=wx.TextCtrl(panel,-1,'',(120,470),(80,20))
+        wx.StaticText(panel,-1,'坡口b:',(10,500))
+        self.text15=wx.TextCtrl(panel,-1,'',(120,500),(80,20))
         self.Bind(wx.EVT_BUTTON,self.sea,button)
     def sea(self,event):
         s1=self.choice2.GetStringSelection()
         s2=self.choice1.GetStringSelection()
-        results=search_PLdb.calc(s1,s2)
+        results=search_SOdb.calc(s1,s2)
         self.text1.SetValue(str(results[0][1]))
         self.text2.SetValue(str(results[0][2]))
         self.text3.SetValue(str(results[0][3]))
@@ -50,9 +58,12 @@ class search_PL(wx.Frame):
         self.text9.SetValue(str(results[0][9]))
         self.text10.SetValue(str(results[0][10]))
         self.text11.SetValue(str(results[0][11]))
-
+        self.text12.SetValue(str(results[0][12]))
+        self.text13.SetValue(str(results[0][13]))
+        self.text14.SetValue(str(results[0][14]))
+        self.text15.SetValue(str(results[0][15]))
 if __name__=='__main__':
     myapp=wx.PySimpleApp()
-    frame=search_PL()
+    frame=search_SO()
     frame.Show()
     myapp.MainLoop()
