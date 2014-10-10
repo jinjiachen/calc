@@ -43,7 +43,7 @@ class search_SO(wx.Frame):
         wx.StaticText(panel,-1,'ÆÂ¿Úb:',(10,500))
         self.text15=wx.TextCtrl(panel,-1,'',(120,500),(80,20))
         self.Bind(wx.EVT_BUTTON,self.sea,button)
-        image=wx.Image('images\SO.jpg',wx.BITMAP_TYPE_ANY)
+        image=wx.Image('d:/repo/calc/images/SO.jpg',wx.BITMAP_TYPE_ANY)
         imagev=wx.StaticBitmap(panel,-1,wx.BitmapFromImage(image),pos=(230,80))
     def sea(self,event):
         s1=self.choice2.GetStringSelection()
