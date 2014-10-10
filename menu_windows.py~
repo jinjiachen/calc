@@ -3,6 +3,7 @@ import wx
 import math
 import search_PL
 import search_SO
+import search_WN
 pi=3.14195265357
 class myframe(wx.Frame):
     def __init__(self):
@@ -21,6 +22,7 @@ class myframe(wx.Frame):
         item6=mymenu2.Append(-1,'伞形板计算')
         item7=mymenu3.Append(-1,'板式平焊法兰')
         item8=mymenu3.Append(-1,'带颈平焊法兰')
+        item9=mymenu3.Append(-1,'带颈对焊法兰')
         mymenubar.Append(mymenu1,'文件')
         mymenubar.Append(mymenu2,'计算')
         mymenubar.Append(mymenu3,'资料库')
@@ -34,6 +36,7 @@ class myframe(wx.Frame):
         self.Bind(wx.EVT_MENU,self.umb,item6)
         self.Bind(wx.EVT_MENU,self.sea1,item7)
         self.Bind(wx.EVT_MENU,self.sea2,item8)
+        self.Bind(wx.EVT_MENU,self.sea3,item9)
     def squ(self,event):
         frame1=myframe1()
         frame1.Show()
@@ -58,6 +61,9 @@ class myframe(wx.Frame):
     def sea2(self,event):
         frame8=search_SO.search_SO()
         frame8.Show()
+    def sea3(self,event):
+        frame9=search_WN.search_WN()
+        frame9.Show()
     def exit(self,event):
         self.Close(True)
 class myframe1(wx.Frame):
