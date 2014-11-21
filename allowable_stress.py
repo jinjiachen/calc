@@ -32,6 +32,8 @@ class allowableframe(wx.Frame):
                     ans=(107-113)/50*(a3-100)+113
                 elif a3>=150 and a3<200:
                     ans=(99-107)/50*(a3-150)+107
+ #       elif a1=='Q245R':
+            
         self.text3.SetValue(str(ans))
                 
 if __name__=='__main__':
