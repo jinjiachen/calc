@@ -8,14 +8,14 @@ class flange_weight_frame(wx.Frame):
         wx.Frame.__init__(self,None,-1,'FlangeWeight')
         self.panel=wx.Panel(self)
         PN=['2.5','6','10','16','25','40','63','100','160']
-        self.ComboPN=wx.ComboBox(self.panel,-1,'«Î—°‘ÒPN:',(50,50),(100,20),choices=PN)
+        self.ComboPN=wx.ComboBox(self.panel,-1,'ËØ∑ÈÄâÊã©PN:',(50,50),(100,20),choices=PN)
         self.Bind(wx.EVT_COMBOBOX,self.fun1,self.ComboPN)
-        self.ComboDN=wx.ComboBox(self.panel,-1,'«Î—°‘ÒDN:',(50,80),(100,20),[])
+        self.ComboDN=wx.ComboBox(self.panel,-1,'ËØ∑ÈÄâÊã©DN:',(50,80),(100,20),[])
         Type=['unknow']
-#        ComboDN=wx.ComboBox(panel,-1,'«Î—°‘ÒDN:',(50,80),(100,20),DN)
-        ComboType=wx.ComboBox(self.panel,-1,'∑®¿º¿‡–Õ:',(50,110),(100,20),Type)
-        button=wx.Button(self.panel,-1,'≤È—Ø',(50,150))
-        text1=wx.StaticText(self.panel,-1,'∑®¿º÷ ¡øŒ™:',(50,200))
+#        ComboDN=wx.ComboBox(panel,-1,'ËØ∑ÈÄâÊã©DN:',(50,80),(100,20),DN)
+        ComboType=wx.ComboBox(self.panel,-1,'Ê≥ïÂÖ∞Á±ªÂûã:',(50,110),(100,20),Type)
+        button=wx.Button(self.panel,-1,'Êü•ËØ¢',(50,150))
+        text1=wx.StaticText(self.panel,-1,'Ê≥ïÂÖ∞Ë¥®Èáè‰∏∫:',(50,200))
         text2=wx.TextCtrl(self.panel,-1,'',(140,200))
 
     def fun1(self,event):
@@ -28,7 +28,7 @@ class flange_weight_frame(wx.Frame):
             DN=['10','15','20','25','32','40','50','65','80','100','125','150','200','250','300','350','400','450','500','600']
         else:
             DN=['10','15','20','25','32','40','50','65','80','100','125','150','200','250','300','350','400','450','500','600','700','800','900','1000','1200','1400','1600','1800','2000']
-#        ComboDN=wx.ComboBox(self.panel,-1,'«Î—°‘ÒDN:',(50,80),(100,20),DN)
+#        ComboDN=wx.ComboBox(self.panel,-1,'ËØ∑ÈÄâÊã©DN:',(50,80),(100,20),DN)
         a=self.ComboPN.GetCount()
         print a
         self.ComboDN.Clear()
