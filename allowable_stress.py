@@ -1,24 +1,24 @@
-# -*- coding: cp936 -*-
+# -*- coding:utf-8 -*-
 import wx
 class allowableframe(wx.Frame):
     def __init__(self):
-        wx.Frame.__init__(self,None,-1,'ĞíÓÃÓ¦Á¦¼ÆËã(GB47012-2010)')
+        wx.Frame.__init__(self,None,-1,'è®¸ç”¨åº”åŠ›è®¡ç®—(GB47012-2010)')
         panel=wx.Panel(self)
-        material=['¸Ö¹Ü20','Q245R','Q235B']
-        wx.StaticText(panel,-1,'Ñ¡Ôñ²ÄÁÏ(mm):',(100,50))
-        wx.StaticText(panel,-1,'ºñ¶È(mm):',(100,100))
-        wx.StaticText(panel,-1,'ÎÂ¶È:',(100,150))
-        wx.StaticText(panel,-1,'ĞíÓÃÓ¦Á¦(MPa):',(100,250))
+        material=['é’¢ç®¡20','Q245R','Q235B']
+        wx.StaticText(panel,-1,'é€‰æ‹©ææ–™(mm):',(100,50))
+        wx.StaticText(panel,-1,'åšåº¦(mm):',(100,100))
+        wx.StaticText(panel,-1,'æ¸©åº¦:',(100,150))
+        wx.StaticText(panel,-1,'è®¸ç”¨åº”åŠ›(MPa):',(100,250))
         self.choices=wx.Choice(panel,-1,(200,50),(100,30),choices=material)
-        self.text1=wx.TextCtrl(panel,-1,'',(200,100)) #ÊäÈëºñ¶È
-        self.text2=wx.TextCtrl(panel,-1,'',(200,150)) #ÊäÈëÎÂ¶È
-        button=wx.Button(panel,-1,'¼ÆËã',(100,200)) 
-        self.text3=wx.TextCtrl(panel,-1,'',(200,250)) #Êä³öĞíÓÃÓ¦Á¦
+        self.text1=wx.TextCtrl(panel,-1,'',(200,100)) #è¾“å…¥åšåº¦
+        self.text2=wx.TextCtrl(panel,-1,'',(200,150)) #è¾“å…¥æ¸©åº¦
+        button=wx.Button(panel,-1,'è®¡ç®—',(100,200)) 
+        self.text3=wx.TextCtrl(panel,-1,'',(200,250)) #è¾“å‡ºè®¸ç”¨åº”åŠ›
         self.Bind(wx.EVT_BUTTON,self.all,button)
     def all(self,event):
         a1=self.choices.GetStringSelection()
-        a2=float(self.text1.GetValue()) #È¡ºñ¶È
-        a3=float(self.text2.GetValue()) #È¡ÎÂ¶È
+        a2=float(self.text1.GetValue()) #å–åšåº¦
+        a3=float(self.text2.GetValue()) #å–æ¸©åº¦
         if a1=='Q235B':
             if a2>=3 and a2<16:
                 if a3<150:
@@ -32,8 +32,36 @@ class allowableframe(wx.Frame):
                     ans=(107-113)/50*(a3-100)+113
                 elif a3>=150 and a3<200:
                     ans=(99-107)/50*(a3-150)+107
- #       elif a1=='Q245R':
-            
+        elif a1=='Q245R':
+            if a2>=3 and a2<16:
+                if a3<=20:
+                    ans=133
+                elif a3>20 and a3<=100:
+                    #ans=(132-133)/80*(a3-20)+133
+                    ans=(132-133)/80*(a3-20)+133
+                    print ans
+                elif a3>100 and a3<=150:
+                    ans=(126-132)/50*(a3-100)+132
+                elif a3>150 and a3<=200:
+                    ans=(118-126)/50*(a3-150)+126
+            elif a2>=16 and a2<36:
+                if a3<=20:
+                    ans=133
+                elif a3>20 and a3<=100:
+                    ans=(126-133)/80*(a3-20)+133
+                elif a3>100 and a3<=150:
+                    ans=(120-126)/50*(a3-100)+126
+                elif a3>150 and a3<=200:
+                    ans=(112-120)/50*(a3-150)+120
+            elif a2>=36 and a2<60:
+                if a3<=20:
+                    ans=133
+                elif a3>20 and a3<=100:
+                    ans=(120-133)/80*(a3-20)+133
+                elif a3>100 and a3<=150:
+                    ans=(114-120)/50*(a3-100)+120
+                elif a3>150 and a3<=200:
+                    ans=(107-114)/50*(a3-150)+114
         self.text3.SetValue(str(ans))
                 
 if __name__=='__main__':
