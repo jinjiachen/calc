@@ -1,24 +1,27 @@
-# -*- coding:utf-8 -*-
+# -*- coding:cp936 -*-
+from __future__ import division
 import wx
+
+
 class allowableframe(wx.Frame):
     def __init__(self):
-        wx.Frame.__init__(self,None,-1,'è®¸ç”¨åº”åŠ›è®¡ç®—(GB47012-2010)')
+        wx.Frame.__init__(self,None,-1,'ĞíÓÃÓ¦Á¦¼ÆËã(GB47012-2010)')
         panel=wx.Panel(self)
-        material=['é’¢ç®¡20','Q245R','Q235B']
-        wx.StaticText(panel,-1,'é€‰æ‹©ææ–™(mm):',(100,50))
-        wx.StaticText(panel,-1,'åšåº¦(mm):',(100,100))
-        wx.StaticText(panel,-1,'æ¸©åº¦:',(100,150))
-        wx.StaticText(panel,-1,'è®¸ç”¨åº”åŠ›(MPa):',(100,250))
+        material=['¸Ö¹Ü20','Q245R','Q235B']
+        wx.StaticText(panel,-1,'Ñ¡Ôñ²ÄÁÏ(mm):',(100,50))
+        wx.StaticText(panel,-1,'ºñ¶È(mm):',(100,100))
+        wx.StaticText(panel,-1,'ÎÂ¶È:',(100,150))
+        wx.StaticText(panel,-1,'ĞíÓÃÓ¦Á¦(MPa):',(100,250))
         self.choices=wx.Choice(panel,-1,(200,50),(100,30),choices=material)
-        self.text1=wx.TextCtrl(panel,-1,'',(200,100)) #è¾“å…¥åšåº¦
-        self.text2=wx.TextCtrl(panel,-1,'',(200,150)) #è¾“å…¥æ¸©åº¦
-        button=wx.Button(panel,-1,'è®¡ç®—',(100,200)) 
-        self.text3=wx.TextCtrl(panel,-1,'',(200,250)) #è¾“å‡ºè®¸ç”¨åº”åŠ›
+        self.text1=wx.TextCtrl(panel,-1,'',(200,100)) #ÊäÈëºñ¶È
+        self.text2=wx.TextCtrl(panel,-1,'',(200,150)) #ÊäÈëÎÂ¶È
+        button=wx.Button(panel,-1,'¼ÆËã',(100,200)) 
+        self.text3=wx.TextCtrl(panel,-1,'',(200,250)) #Êä³öĞíÓÃÓ¦Á¦
         self.Bind(wx.EVT_BUTTON,self.all,button)
     def all(self,event):
         a1=self.choices.GetStringSelection()
-        a2=float(self.text1.GetValue()) #å–åšåº¦
-        a3=float(self.text2.GetValue()) #å–æ¸©åº¦
+        a2=float(self.text1.GetValue()) #È¡ºñ¶È
+        a3=float(self.text2.GetValue()) #È¡ÎÂ¶È
         if a1=='Q235B':
             if a2>=3 and a2<16:
                 if a3<150:
@@ -37,9 +40,7 @@ class allowableframe(wx.Frame):
                 if a3<=20:
                     ans=133
                 elif a3>20 and a3<=100:
-                    #ans=(132-133)/80*(a3-20)+133
                     ans=(132-133)/80*(a3-20)+133
-                    print ans
                 elif a3>100 and a3<=150:
                     ans=(126-132)/50*(a3-100)+132
                 elif a3>150 and a3<=200:
