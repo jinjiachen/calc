@@ -5,6 +5,7 @@ import search_PL
 import search_SO
 import search_WN
 import circlecalculator
+import pre_format
 pi=3.14195265357
 class myframe(wx.Frame):
     def __init__(self):
@@ -22,6 +23,7 @@ class myframe(wx.Frame):
         item5=mymenu2.Append(-1,'安全阀最小口径')
         item6=mymenu2.Append(-1,'伞形板计算')
         item10=mymenu2.Append(-1,'圆筒计算厚度')
+        item11=mymenu2.Append(-1,'材料定额生成器')
         item7=mymenu3.Append(-1,'板式平焊法兰')
         item8=mymenu3.Append(-1,'带颈平焊法兰')
         item9=mymenu3.Append(-1,'带颈对焊法兰')
@@ -40,6 +42,7 @@ class myframe(wx.Frame):
         self.Bind(wx.EVT_MENU,self.sea2,item8)
         self.Bind(wx.EVT_MENU,self.sea3,item9)
         self.Bind(wx.EVT_MENU,self.func,item10)
+        self.Bind(wx.EVT_MENU,self.fun1,item11)
     def squ(self,event):
         frame1=myframe1()
         frame1.Show()
@@ -70,6 +73,9 @@ class myframe(wx.Frame):
     def func(self,event):
         frame10=circlecalculator.circleframe()
         frame10.Show()
+    def fun1(self,event):
+        frame11=pre_format.myframe()
+        frame11.Show()
     def exit(self,event):
         self.Close(True)
 class myframe1(wx.Frame):
