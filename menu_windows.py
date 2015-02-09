@@ -6,6 +6,7 @@ import search_SO
 import search_WN
 import circlecalculator
 import pre_format
+import calc_weight
 pi=3.14195265357
 class myframe(wx.Frame):
     def __init__(self):
@@ -16,9 +17,9 @@ class myframe(wx.Frame):
         mymenu2=wx.Menu()
         mymenu3=wx.Menu()
         myexit=mymenu1.Append(wx.NewId(),'&退出')
-        item1=mymenu2.Append(-1,'方板质量')
-        item2=mymenu2.Append(-1,'圆板质量')
-        item3=mymenu2.Append(-1,'钢管')
+        item1=mymenu2.Append(-1,'重量计算')
+#        item2=mymenu2.Append(-1,'圆板质量')
+#        item3=mymenu2.Append(-1,'钢管')
         item4=mymenu2.Append(-1,'材料下偏差')
         item5=mymenu2.Append(-1,'安全阀最小口径')
         item6=mymenu2.Append(-1,'伞形板计算')
@@ -33,8 +34,8 @@ class myframe(wx.Frame):
         self.SetMenuBar(mymenubar)
         self.Bind(wx.EVT_MENU,self.exit,myexit)
         self.Bind(wx.EVT_MENU,self.squ,item1)
-        self.Bind(wx.EVT_MENU,self.cir,item2)
-        self.Bind(wx.EVT_MENU,self.cyl,item3)
+#        self.Bind(wx.EVT_MENU,self.cir,item2)
+#        self.Bind(wx.EVT_MENU,self.cyl,item3)
         self.Bind(wx.EVT_MENU,self.dev,item4)
         self.Bind(wx.EVT_MENU,self.saf,item5)
         self.Bind(wx.EVT_MENU,self.umb,item6)
@@ -44,7 +45,7 @@ class myframe(wx.Frame):
         self.Bind(wx.EVT_MENU,self.func,item10)
         self.Bind(wx.EVT_MENU,self.fun1,item11)
     def squ(self,event):
-        frame1=myframe1()
+        frame1=calc_weight.calc_weight_frame()
         frame1.Show()
     def cir(self,event):
         frame2=myframe2()
